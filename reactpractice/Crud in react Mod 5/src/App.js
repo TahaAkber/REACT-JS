@@ -12,6 +12,17 @@ function App() {
   const handleadd = () => {
     settodolist([...todolist, value]);
   };
+
+  const deletetask = (taskName) => {
+    const newarray = todolist.filter((i) => {
+      if (i === taskName) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    settodolist(newarray);
+  };
   return (
     <div className="App">
       <div className="Addtask">
@@ -20,7 +31,12 @@ function App() {
       </div>
       <div className="displaytask">
         {todolist.map((i) => {
-          return <h3>{i}</h3>;
+          return (
+            <div>
+              <h3>{i}</h3>
+              <button onClick={() => deletetask(i)}>X</button>
+            </div>
+          );
         })}
       </div>
     </div>
