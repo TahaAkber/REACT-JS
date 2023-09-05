@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Task from "./Components/Task";
 import "./App.css";
 
 function App() {
@@ -10,12 +11,17 @@ function App() {
   };
 
   const handleadd = () => {
-    settodolist([...todolist, value]);
+    const task = {
+      //if todolist has element 1 or more then take array from array take last member and id then + 1 to id
+      id: todolist.length === 0 ? 1 : todolist[todolist.length - 1].id + 1,
+      taskname: value,
+    };
+    settodolist([...todolist, task]);
   };
 
-  const deletetask = (taskName) => {
+  const deletetask = (id) => {
     const newarray = todolist.filter((i) => {
-      if (i === taskName) {
+      if (i.id === id) {
         return false;
       } else {
         return true;
@@ -32,10 +38,7 @@ function App() {
       <div className="displaytask">
         {todolist.map((i) => {
           return (
-            <div>
-              <h3>{i}</h3>
-              <button onClick={() => deletetask(i)}>X</button>
-            </div>
+            <Task taskname={i.taskname} id={i.id} deletetask={deletetask} />
           );
         })}
       </div>
