@@ -15,10 +15,19 @@ function App() {
       //if todolist has element 1 or more then take array from array take last member and id then + 1 to id
       id: todolist.length === 0 ? 1 : todolist[todolist.length - 1].id + 1,
       taskname: value,
+      completed: false,
     };
     settodolist([...todolist, task]);
   };
-
+  const completetask = (id) => {
+    settodolist(
+      todolist.map((i) => {
+        if (i.id === id) {
+          return { ...i, completed: true };
+        } else return i;
+      })
+    );
+  };
   const deletetask = (id) => {
     const newarray = todolist.filter((i) => {
       if (i.id === id) {
@@ -38,7 +47,13 @@ function App() {
       <div className="displaytask">
         {todolist.map((i) => {
           return (
-            <Task taskname={i.taskname} id={i.id} deletetask={deletetask} />
+            <Task
+              taskname={i.taskname}
+              id={i.id}
+              deletetask={deletetask}
+              completetask={completetask}
+              completed={i.completed}
+            />
           );
         })}
       </div>

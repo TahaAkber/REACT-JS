@@ -2,9 +2,11 @@ import React from 'react'
 
 function Task(props) {
   return (
-            <div>
-              <h3>{props.taskname}</h3>
-              <button onClick={() => props.deletetask(props.id)}>X</button>
+      <div style={{backgroundColor: props.completed ? "green" : "white"}}>
+      <h3>{props.taskname}</h3>
+      <button type="submit" onClick={()=>props.completetask(props.id)}>Completed</button>
+      <button onClick={() => props.deletetask(props.id)}>X</button>     
+
             </div>
           );
 }
