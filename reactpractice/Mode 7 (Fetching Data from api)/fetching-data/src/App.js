@@ -9,9 +9,7 @@ function App() {
     });
   };
   useEffect(() => {
-    Axios.get("https://catfact.ninja/fact").then((res) => {
-      setdata(res.data.fact);
-    });
+    fetchcat();
   }, []);
 
   return (
