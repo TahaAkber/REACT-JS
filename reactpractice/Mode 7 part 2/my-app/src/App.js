@@ -24,10 +24,11 @@ function App() {
           setname(event.target.value);
         }}
       />
+      {/* question mark shows that to bring name,age,count of an object if exist */}
       <button onClick={fetchdata}>Predict Age</button>
-      <h2>Predicted Age: {predictedage.name}</h2>
-      <h2>Predicted Age: {predictedage.age}</h2>
-      <h2>Count: {predictedage.count}</h2>
+      <h2>Name: {predictedage?.name}</h2>
+      <h2>Predicted Age: {predictedage?.age}</h2>
+      <h2>Count: {predictedage?.count}</h2>
     </div>
   );
 }
