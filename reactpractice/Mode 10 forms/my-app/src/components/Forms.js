@@ -4,15 +4,15 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const Forms = () => {
-  //   const schema = yup.object().shape({
-  //     fullName: yup.string().required(),
-  //     email: yup.string().email().required(),
-  //     age: yup.number().positive().integer().min(18).required(),
-  //     password: yup.string().number().min(4).max(10).required(),
-  //     confirmPassword: yup.string().oneOf([yup.ref("Password"), null]),
-  //   });
+  const schema = yup.object().shape({
+    fullName: yup.string().required(),
+    email: yup.string().email().required(),
+    age: yup.number().positive().integer().min(18).required(),
+    password: yup.string().min(4).max(20).required(),
+    confirmPassword: yup.string().oneOf([yup.ref("password"), null]),
+  });
   const { register, handleSubmit } = useForm({
-    //resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
     console.log(data);
