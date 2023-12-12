@@ -8,6 +8,14 @@ interface Props{
     age: number;
     ismarried: boolean;
     friends: string[];
+    //if we pass here country instead of string then we have only 1 of 3 options here
+    country: Country;
+}
+//now we defining special return type of props like here country using enum
+export enum Country{
+    brazil = "Brazil",
+    canada = "Canada",
+    pakistan = "Pakistan"
 }
 function Persons(props:Props) {
   return (
@@ -18,6 +26,7 @@ function Persons(props:Props) {
          {props.friends.map((i: string) => 
               (<h1>{i}</h1>)
           )}
+          <h1>Country: {props.country }</h1>
       </div>
   )
 }
