@@ -37,14 +37,24 @@ export const CreateForm = () => {
     });
   };
   return (
-    <form onSubmit={handleSubmit(onCreatepost)}>
-      <input placeholder="Tile..." {...register("title")}></input>
-      <p style={{ color: "red" }}>{errors.title?.message}</p>
-      <textarea placeholder="Description..." {...register("description")} />
-      <p style={{ color: "red" }}>{errors.description?.message}</p>
+    <div className="form">
+      <form onSubmit={handleSubmit(onCreatepost)} className="test">
+        <input
+          placeholder="Title..."
+          {...register("title")}
+          className="box"
+        ></input>
+        <p style={{ color: "red" }}>{errors.title?.message}</p>
+        <textarea
+          placeholder="Description..."
+          {...register("description")}
+          className="box"
+        />
+        <p style={{ color: "red" }}>{errors.description?.message}</p>
 
-      <input type="submit"></input>
-    </form>
+        <input type="submit" className="submit"></input>
+      </form>
+    </div>
   );
 };
 

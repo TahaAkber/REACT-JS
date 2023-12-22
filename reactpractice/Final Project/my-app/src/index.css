@@ -108,3 +108,31 @@ code {
   display: flex;
   flex-direction: column;
 }
+.form {
+  background-color: #08a742;
+  width: 20%;
+  border: 3px solid;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-30%, -50%);
+  padding: 10px;
+}
+.box {
+  background-color: white;
+  border-radius: 5%;
+  border: 2px solid;
+}
+.submit {
+  transition-duration: 0.4s;
+  color: black;
+  border-radius: 15% solid #04aa6d;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.submit:hover {
+  background-color: #04aa6d; /* Green */
+  color: white;
+}
