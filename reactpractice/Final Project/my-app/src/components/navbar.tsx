@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Main } from "../pages/main";
+import { Main } from "../pages/main/main";
 import { auth } from "../configs/firebase";
 import Login from "../pages/login";
 import { signOut } from "firebase/auth";
