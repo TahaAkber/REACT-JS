@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { db, auth } from "../../configs/firebase";
 import { post as Ipost } from "./main";
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
@@ -8,12 +8,13 @@ interface props {
   post: Ipost;
 }
 export const Post = (props: props) => {
+  const [nooflikes, setnooflikes] = useState<number | null>(null);
   const { post } = props;
   const [user] = useAuthState(auth);
   const likesref = collection(db, "likes");
   const getlikes = async () => {
     const data = await getDocs(likesDoc);
-    console.log(data.docs.map((i) => ({ ...i.data(), id: i.id })));
+    setnooflikes(data.docs.length);
   };
   const likesDoc = query(likesref, where("postId", "==", post.id));
   const Addlike = async () => {
@@ -35,6 +36,7 @@ export const Post = (props: props) => {
       <div className="footer">
         <p>@{post.username}</p>
         <button onClick={Addlike}>&#128077;</button>
+        {nooflikes && <p>Likes: {nooflikes}</p>}
       </div>
     </div>
   );
