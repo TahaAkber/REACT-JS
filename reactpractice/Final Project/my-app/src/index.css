@@ -13,6 +13,16 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.box {
+  border: 2px solid grey;
+  align-items: center;
+  text-align: center;
+  margin-top: 2%;
+  padding: auto;
+}
+.submit {
+  border-radius: 2px solid black;
+}
 
 .navbar ul {
   list-style-type: none;
@@ -100,7 +110,7 @@ button::before {
 
 /* Styling for the like button when hovered */
 button:hover {
-  color: #4caf50;
+  color: #374237;
 }
 
 /* Styling for the like count */
@@ -110,4 +120,15 @@ p.likes {
 }
 .profile {
   margin-left: 800%;
+}
+.submit {
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 2px solid #4f5a56;
+}
+
+.submit:hover {
+  background-color: #2f3a36;
+  color: white;
 }
