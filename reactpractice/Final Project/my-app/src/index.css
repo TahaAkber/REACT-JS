@@ -68,3 +68,42 @@ body {
   font-style: bold;
   font-family: "Times New Roman", Times, serif;
 }
+/* Styling for the post footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* Styling for the username */
+p {
+  margin-right: 6px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Styling for the like button */
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* Styling for the like button icon */
+button::before {
+  content: "";
+}
+
+/* Styling for the like button when hovered */
+button:hover {
+  color: #4caf50;
+}
+
+/* Styling for the like count */
+p.likes {
+  font-size: 14px;
+  color: #888;
+}
