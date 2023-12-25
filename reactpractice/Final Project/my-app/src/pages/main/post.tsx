@@ -7,19 +7,35 @@ import { useAuthState } from "react-firebase-hooks/auth";
 interface props {
   post: Ipost;
 }
+interface Like {
+  userId: string;
+}
 export const Post = (props: props) => {
-  const [nooflikes, setnooflikes] = useState<number | null>(null);
+  const [likes, setlikes] = useState<Like[] | null>(null);
   const { post } = props;
   const [user] = useAuthState(auth);
   const likesref = collection(db, "likes");
   const getlikes = async () => {
     const data = await getDocs(likesDoc);
-    setnooflikes(data.docs.length);
+    setlikes(data.docs.map((i) => ({ userId: i.data().userId })));
   };
   const likesDoc = query(likesref, where("postId", "==", post.id));
+
   const Addlike = async () => {
-    await addDoc(likesref, { userId: user?.uid, postId: post.id });
+    try {
+      await addDoc(likesref, { userId: user?.uid, postId: post.id });
+      //optimistic rendering kr rhe hain kyun k bar bar page refresh krna parh rha
+      if (user) {
+        setlikes((prev) =>
+          prev ? [...prev, { userId: user.uid }] : [{ userId: user.uid }]
+        );
+        //try catch lagayenge kyun k agar api fails hogai tou manually data update hojayega isko rokne k liye
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
+  const hasuserliked = likes?.find((i) => i.userId === user?.uid);
   useEffect(() => {
     getlikes();
   }, []);
@@ -35,8 +51,10 @@ export const Post = (props: props) => {
       </div>
       <div className="footer">
         <p>@{post.username}</p>
-        <button onClick={Addlike}>&#128077;</button>
-        {nooflikes && <p>Likes: {nooflikes}</p>}
+        <button onClick={Addlike}>
+          {hasuserliked ? <>&#128078;</> : <>&#128077;</>}
+        </button>
+        {likes && <p>Likes: {likes?.length}</p>}
       </div>
     </div>
   );
