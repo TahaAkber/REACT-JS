@@ -44,6 +44,7 @@ body {
 
 #name {
   font-weight: bold;
+  color: white;
 }
 
 #userphoto {
@@ -106,4 +107,7 @@ button:hover {
 p.likes {
   font-size: 14px;
   color: #888;
+}
+.profile {
+  margin-left: 800%;
 }

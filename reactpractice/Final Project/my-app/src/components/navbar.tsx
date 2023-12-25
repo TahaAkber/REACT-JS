@@ -36,22 +36,24 @@ function Navbar() {
           </ul>
           <div className="namephoto">
             {/* now i want to show user name in the website afterlogin in  */}
-
-            {user && (
-              <div>
-                {" "}
-                <div className="user">
+            <div className="profile">
+              {user && (
+                <div>
                   {" "}
-                  <p id="name">{user?.displayName}</p>
+                  <div className="user" style={{ fontSize: 3 }}>
+                    {" "}
+                    <p id="name">{user?.displayName}</p>
+                  </div>
+                  <img
+                    src={user?.photoURL || ""}
+                    width="100"
+                    height="100"
+                    id="userphoto"
+                    style={{ width: 40, height: 40 }}
+                  ></img>
                 </div>
-                <img
-                  src={user?.photoURL || ""}
-                  width="100"
-                  height="100"
-                  id="userphoto"
-                ></img>
-              </div>
-            )}
+              )}
+            </div>
           </div>
           <div>
             <button onClick={Signout} className="button1">
