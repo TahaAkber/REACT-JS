@@ -6,12 +6,12 @@ import Login from "../pages/login";
 import { signOut } from "firebase/auth";
 // yeh is liye lia hai k profile change nhi horhi thi aik bar login krke then phir yeh lia tou alag alag account se login hoga
 //or profile bhi change hogi
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth"; //yeh kara hai humne naya hook auth pakage take  sari information ajaye tareeke se
 function Navbar() {
   const Signout = async () => {
-    await signOut(auth);
+    await signOut(auth); //signout krne k liye hai yeh, yahan auth pass kara hai take saari information logout hojaye
   };
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth); //auth ki saari cheezein authstate k zariye user me ajayegi
   return (
     <div>
       <header>
