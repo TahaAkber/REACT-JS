@@ -10,17 +10,28 @@ function Navbar() {
     await signOut(auth);
   };
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/login">Login</Link>
-      <div>
+    <div className="bar">
+      <Link to="/" className="home">
+        Home
+      </Link>
+      <Link to="/login" className="home">
+        Login
+      </Link>
+      <div className="user">
         {user && (
           <>
             <p>{user.displayName}</p>
             <img src={user.photoURL || ""} width="20" height="20" />
-            <button onClick={Signout}>logout</button>
+            <button
+              onClick={Signout}
+              className="home"
+              style={{ height: 2, width: 2 }}
+            >
+              logout
+            </button>
           </>
         )}
+        -
       </div>
     </div>
   );
