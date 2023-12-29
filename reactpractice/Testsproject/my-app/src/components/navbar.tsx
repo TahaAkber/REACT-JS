@@ -14,9 +14,15 @@ function Navbar() {
       <Link to="/" className="home">
         Home
       </Link>
-      <Link to="/login" className="home">
-        Login
-      </Link>
+      {!user ? (
+        <Link to="/login" className="home">
+          Login
+        </Link>
+      ) : (
+        <Link to="/createpost" className="home">
+          CreatePost
+        </Link>
+      )}
       <div className="user">
         {user && (
           <>
