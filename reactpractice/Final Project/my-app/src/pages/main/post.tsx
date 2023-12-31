@@ -102,23 +102,50 @@ export const Post = (props: props) => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const getcomment = async (data: comment) => {
-    await addDoc(commentsref, {
-      userId: user?.uid,
-      postId: post.id,
-      comment: data.comment,
-    });
+
+  const addcomment = async (data: comment) => {
+    try {
+      await addDoc(commentsref, {
+        userId: user?.uid,
+        postId: post.id,
+        comment: data.comment,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    getcomment();
+    getcommentamount();
   };
+
   const commentDoc = query(commentsref, where("postId", "==", post.id));
   const [commentlist, setcommentlist] = useState<number | null>(null);
+  const [getcommentlist, setgetcommentlist] = useState<returncomment[] | null>(
+    null
+  );
   const getcommentamount = async () => {
     const data = await getDocs(commentDoc);
     setcommentlist(data.docs.length);
   };
+  const getcomment = async () => {
+    const data = await getDocs(commentDoc);
+    setgetcommentlist(
+      data.docs.map((doc) => ({
+        ...doc.data(),
+        userId: user?.uid,
+      })) as returncomment[]
+    );
+  };
   useEffect(() => {
     getcommentamount();
-  }, []);
-
+    getcomment();
+  }, [post.id]);
+  const [clear, setclear] = useState("");
+  const handlechange = (e: any) => {
+    setclear(e.target.value);
+  };
+  const handleclick = () => {
+    setclear("");
+  };
   return (
     <div>
       <div className="title">
@@ -134,15 +161,26 @@ export const Post = (props: props) => {
         </button>
         {likes && <p className="likes">Likes: {likes?.length}</p>}
       </div>
-      <form onSubmit={handleSubmit(getcomment)}>
+      <form onSubmit={handleSubmit(addcomment)}>
         <input
           type="text"
           placeholder="Comment Here"
           {...register("comment")}
+          onChange={handlechange}
+          value={clear}
         />
-        <input type="submit" />
-        <p>{errors.comment?.message}</p>
-        {commentlist && <p>Number of Comments {commentlist}</p>}
+        <input type="submit" onClick={handleclick} />
+        {}
+        <p style={{ color: "red" }}>{errors.comment?.message}</p>
+        {commentlist && commentlist > 0 ? (
+          <p>Number of Comments {commentlist} </p>
+        ) : (
+          <p></p>
+        )}
+        <ul>
+          {getcommentlist &&
+            getcommentlist.map((i) => <li key={i.id}>{i.comment}</li>)}
+        </ul>
       </form>
     </div>
   );
