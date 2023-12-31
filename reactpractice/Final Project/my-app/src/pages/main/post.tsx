@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { db, auth } from "../../configs/firebase";
 import { post as Ipost } from "./main";
@@ -93,7 +94,7 @@ export const Post = (props: props) => {
   //Comments functionality
   const commentsref = collection(db, "comments");
   const schema = yup.object().shape({
-    comment: yup.string().required(""),
+    comment: yup.string().required("Can't be Empty"),
   });
   const {
     register,
@@ -169,7 +170,7 @@ export const Post = (props: props) => {
           onChange={handlechange}
           value={clear}
         />
-        <input type="submit" onClick={handleclick} />
+        <input type="submit" onClick={handleclick} className="submit" />
         {}
         <p style={{ color: "red" }}>{errors.comment?.message}</p>
         {commentlist && commentlist > 0 ? (
@@ -177,10 +178,12 @@ export const Post = (props: props) => {
         ) : (
           <p></p>
         )}
-        <ul>
-          {getcommentlist &&
-            getcommentlist.map((i) => <li key={i.id}>{i.comment}</li>)}
-        </ul>
+        <div className="comment">
+          <ul>
+            {getcommentlist &&
+              getcommentlist.map((i) => <li key={i.id}>{i.comment}</li>)}
+          </ul>
+        </div>
       </form>
     </div>
   );

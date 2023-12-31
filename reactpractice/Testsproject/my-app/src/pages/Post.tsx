@@ -135,7 +135,7 @@ export function Post(props: props) {
             onChange={handleChange}
             value={button}
           />
-          <input type="submit" onClick={buttonhandle} />
+          <input type="submit"  onClick={buttonhandle} />
           {commentamount && <p>Number of Comments: {commentamount}</p>}
           <ul>
             {commentlist &&

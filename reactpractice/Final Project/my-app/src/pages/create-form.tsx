@@ -39,6 +39,9 @@ export const CreateForm = () => {
   return (
     <div className="form">
       <form onSubmit={handleSubmit(onCreatepost)} className="test">
+        <h1>
+          <span>ENTER POST</span>
+        </h1>
         <input
           placeholder="Title..."
           {...register("title")}

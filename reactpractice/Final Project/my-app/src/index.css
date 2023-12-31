@@ -126,9 +126,42 @@ p.likes {
   background-color: white;
   color: black;
   border: 2px solid #4f5a56;
+  border-radius: 10px;
 }
 
 .submit:hover {
+  background-color: #2f3a36;
+  color: white;
+}
+.comment ul {
+  padding-left: 2px;
+}
+.form h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h1 {
+  display: block;
+  font-size: 3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.button3 {
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 1.5px solid #4f5a56;
+  border-radius: 10px;
+}
+.button3:hover {
   background-color: #2f3a36;
   color: white;
 }
