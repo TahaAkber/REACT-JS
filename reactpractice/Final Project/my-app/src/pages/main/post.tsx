@@ -11,6 +11,9 @@ import {
   doc,
 } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 interface props {
   post: Ipost;
@@ -19,8 +22,18 @@ interface Like {
   likeId: string;
   userId: string;
 }
+interface comment {
+  comment: string;
+}
+interface returncomment {
+  userId: string;
+  postId: string;
+  id: string;
+  comment: string;
+}
 export const Post = (props: props) => {
   const [likes, setlikes] = useState<Like[] | null>(null);
+  //structure data of post as props
   const { post } = props;
   const [user] = useAuthState(auth);
   const likesref = collection(db, "likes");
@@ -77,7 +90,35 @@ export const Post = (props: props) => {
     getlikes();
   }, []);
 
-  //structure data of post as props
+  //Comments functionality
+  const commentsref = collection(db, "comments");
+  const schema = yup.object().shape({
+    comment: yup.string().required(""),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const getcomment = async (data: comment) => {
+    await addDoc(commentsref, {
+      userId: user?.uid,
+      postId: post.id,
+      comment: data.comment,
+    });
+  };
+  const commentDoc = query(commentsref, where("postId", "==", post.id));
+  const [commentlist, setcommentlist] = useState<number | null>(null);
+  const getcommentamount = async () => {
+    const data = await getDocs(commentDoc);
+    setcommentlist(data.docs.length);
+  };
+  useEffect(() => {
+    getcommentamount();
+  }, []);
+
   return (
     <div>
       <div className="title">
@@ -93,6 +134,16 @@ export const Post = (props: props) => {
         </button>
         {likes && <p className="likes">Likes: {likes?.length}</p>}
       </div>
+      <form onSubmit={handleSubmit(getcomment)}>
+        <input
+          type="text"
+          placeholder="Comment Here"
+          {...register("comment")}
+        />
+        <input type="submit" />
+        <p>{errors.comment?.message}</p>
+        {commentlist && <p>Number of Comments {commentlist}</p>}
+      </form>
     </div>
   );
 };
