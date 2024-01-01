@@ -8,7 +8,7 @@ Welcome to my ReactJS learning journey! This project is a hands-on exploration o
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Introduction
 
@@ -45,9 +45,6 @@ Feel free to explore the codebase, experiment, and learn! Additionally, you can 
 
 Contributions are welcome! If you find a bug, have a feature request, or want to contribute in any way, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
