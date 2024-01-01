@@ -165,3 +165,13 @@ h1 {
   background-color: #2f3a36;
   color: white;
 }
+.loginpage {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+.login {
+  display: block;
+  border: 3px #2f3a36 solid;
+  background-color: aquamarine;
+}

@@ -12,9 +12,11 @@ export const Login = () => {
     navigate("/");
   };
   return (
-    <div>
-      <p>Sign In To Google To Continue</p>
-      <button onClick={Signinwithgoogle}>Sign In With Google</button>
+    <div className="loginpage">
+      <div className="login">
+        <p>Sign In To Google To Continue</p>
+        <button onClick={Signinwithgoogle}>Sign In With Google</button>
+      </div>
     </div>
   );
 };

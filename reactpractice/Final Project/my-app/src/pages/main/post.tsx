@@ -162,29 +162,37 @@ export const Post = (props: props) => {
         </button>
         {likes && <p className="likes">Likes: {likes?.length}</p>}
       </div>
-      <form onSubmit={handleSubmit(addcomment)}>
-        <input
-          type="text"
-          placeholder="Comment Here"
-          {...register("comment")}
-          onChange={handlechange}
-          value={clear}
-        />
-        <input type="submit" onClick={handleclick} className="submit" />
-        {}
-        <p style={{ color: "red" }}>{errors.comment?.message}</p>
-        {commentlist && commentlist > 0 ? (
-          <p>Number of Comments {commentlist} </p>
+      <div>
+        {user ? (
+          <form onSubmit={handleSubmit(addcomment)}>
+            <div>
+              <input
+                type="text"
+                placeholder="Comment Here"
+                {...register("comment")}
+                onChange={handlechange}
+                value={clear}
+              />
+              <input type="submit" onClick={handleclick} className="submit" />
+              <p style={{ color: "red" }}>{errors.comment?.message}</p>
+              {commentlist && commentlist > 0 ? (
+                <p>Number of Comments {commentlist} </p>
+              ) : (
+                <p></p>
+              )}
+            </div>
+
+            <div className="comment">
+              <ul>
+                {getcommentlist &&
+                  getcommentlist.map((i) => <li key={i.id}>{i.comment}</li>)}
+              </ul>
+            </div>
+          </form>
         ) : (
-          <p></p>
+          <h6>Please Log-In to Comment</h6>
         )}
-        <div className="comment">
-          <ul>
-            {getcommentlist &&
-              getcommentlist.map((i) => <li key={i.id}>{i.comment}</li>)}
-          </ul>
-        </div>
-      </form>
+      </div>
     </div>
   );
 };
