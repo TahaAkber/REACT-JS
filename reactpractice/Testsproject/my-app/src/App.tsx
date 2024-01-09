@@ -12,9 +12,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          {/* <Route path="/" element={<Home />}></Route> */}
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/createpost" element={<Createpost />}></Route>
+          {/* <Route path="/createpost" element={<Createpost />}></Route> */}
         </Routes>
       </Router>
     </div>
