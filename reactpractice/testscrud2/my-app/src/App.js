@@ -1,10 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 function App() {
-  const [value, setvalue] = useState("");
   const [newvalue, setnewvalue] = useState(null);
   const [list, settodolist] = useState([]);
-
   const handleaddtolist = () => {
     if (newvalue != null) {
       const newarray = {
@@ -17,6 +15,17 @@ function App() {
       alert("Enter value please to add");
     }
   };
+  const deletetask = (id) => {
+    const newlist = list.filter((i) => {
+      if (i.id === id) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    settodolist(newlist);
+  };
+
   return (
     <div className="App">
       <input
@@ -38,7 +47,16 @@ function App() {
           <div>
             <p>{i.value}</p>
             <p>{i.id}</p>
-            <p>{i.complete}</p>
+            <div>
+              <button
+                onClick={() => {
+                  deletetask(i.id);
+                }}
+              >
+                Delete
+              </button>
+              <button>Completed task</button>
+            </div>
           </div>
         ))}
       </p>
