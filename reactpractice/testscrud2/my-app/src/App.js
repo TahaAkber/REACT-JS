@@ -1,24 +1,26 @@
 import "./App.css";
 import { useState } from "react";
 function App() {
-  const [value, setvalue] = useState(null);
-  const [newvalue, setnewvalue] = useState("");
+  const [value, setvalue] = useState("");
+  const [newvalue, setnewvalue] = useState(null);
   const [list, settodolist] = useState([]);
-  const handleadd = () => {
-    setvalue(newvalue);
-  };
+
   const handleaddtolist = () => {
-    const newarray = {
-      id: list.length + 1,
-      value: newvalue,
-      complete: false,
-    };
-    settodolist([...list, newarray]);
+    if (newvalue != null) {
+      const newarray = {
+        id: list.length + 1,
+        value: newvalue,
+        complete: false,
+      };
+      settodolist([...list, newarray]);
+    } else {
+      alert("Enter value please to add");
+    }
   };
   return (
     <div className="App">
       <input
-        placeholder="entertask"
+        placeholder="Enter Task"
         onChange={(e) => {
           setnewvalue(e.target.value);
         }}
@@ -31,7 +33,6 @@ function App() {
       >
         add to list
       </button>
-      <p>{value}</p>
       <p>
         {list.map((i) => (
           <div>
