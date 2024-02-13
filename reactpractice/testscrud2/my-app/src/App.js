@@ -25,6 +25,16 @@ function App() {
     });
     settodolist(newlist);
   };
+  const handlecomplete = (id) => {
+    const newlist = list.map((item) => {
+      if (id === item.id) {
+        return { ...item, complete: true };
+      } else {
+        return item;
+      }
+    });
+    settodolist(newlist);
+  };
 
   return (
     <div className="App">
@@ -45,17 +55,23 @@ function App() {
       <p>
         {list.map((i) => (
           <div>
-            <p>{i.value}</p>
-            <p>{i.id}</p>
+            <label>{i.id}</label>
+            <p style={{ color: !i.complete ? "red" : "green" }}>{i.value}</p>
             <div>
               <button
                 onClick={() => {
                   deletetask(i.id);
                 }}
               >
-                Delete
+                X
               </button>
-              <button>Completed task</button>
+              <button
+                onClick={() => {
+                  handlecomplete(i.id);
+                }}
+              >
+                Completed
+              </button>
             </div>
           </div>
         ))}
