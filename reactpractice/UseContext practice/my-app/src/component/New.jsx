@@ -1,7 +1,7 @@
 import React from "react";
 
-function Profile(props) {
+function New(props) {
   return <div>{props.name}</div>;
 }
 
-export default Profile;
+export default New;
