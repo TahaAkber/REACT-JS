@@ -1,4 +1,5 @@
 import React from "react";
+import { Appcontext } from "../App";
 
 function ChangeProfile() {
   return (

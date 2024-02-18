@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import ChangeProfile from "./ChangeProfile";
+import { Appcontext } from "../App";
 
-function Profile(props) {
+function Profile() {
+  const { name } = useContext(Appcontext);
   return (
     <div>
-      {props.name}...Testing Usecontext api
+      {name}...Testing Usecontext Api
       <span>
         <ChangeProfile />
       </span>

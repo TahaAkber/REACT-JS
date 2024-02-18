@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ChangeProfile from "./ChangeProfile";
-import App, { Appcontext } from "../App";
+import { Appcontext } from "../App";
 function Home() {
   const { name, setname } = useContext(Appcontext);
   return (
