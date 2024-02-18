@@ -5,18 +5,18 @@ import Navbar from "./NAVBAR/Navbar";
 import Profile from "./component/Profile";
 import Contact from "./component/Contact";
 import { useState, useContext, createContext } from "react";
+export const Appcontext = createContext();
 function App() {
-  const Appcontext = createContext();
   const [name, setname] = useState("Taha");
   return (
     <div className="App">
-      <Appcontext.Provider>
+      <Appcontext.Provider value={{ name, setname }}>
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/home" element={<Home name={name} />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/Profile" element={<Profile name={name} />} />
+            <Route path="/Profile" element={<Profile />} />
           </Routes>
         </Router>
       </Appcontext.Provider>

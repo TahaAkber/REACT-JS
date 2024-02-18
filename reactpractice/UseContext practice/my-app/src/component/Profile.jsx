@@ -4,7 +4,7 @@ import ChangeProfile from "./ChangeProfile";
 function Profile(props) {
   return (
     <div>
-      {props.name}.. Testing Usecontext api
+      {props.name}...Testing Usecontext api
       <span>
         <ChangeProfile />
       </span>

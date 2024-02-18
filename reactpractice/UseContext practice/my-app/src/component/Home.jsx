@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ChangeProfile from "./ChangeProfile";
-
-function Home(props) {
+import App, { Appcontext } from "../App";
+function Home() {
+  const { name, setname } = useContext(Appcontext);
   return (
     <h3>
-      Hi this is {props.name} speaking..
+      Hi this is {name} speaking..
       <span>
         <ChangeProfile />
       </span>
