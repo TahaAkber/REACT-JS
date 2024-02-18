@@ -1,11 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
+
 function Navbar() {
   return (
     <div className="parent">
-      <Link to="/home">Home</Link>
-      <Link to="/profile">Profile</Link>
-      <Link to="/contact">Contact</Link>
+      <span>
+        <Link to="/home">Home</Link>
+      </span>
+      <span>
+        {" "}
+        <Link to="/profile">Profile</Link>
+      </span>
+      <span>
+        {" "}
+        <Link to="/contact">Contact</Link>
+      </span>
     </div>
   );
 }

@@ -6,7 +6,7 @@ function Profile() {
   const { name } = useContext(Appcontext);
   return (
     <h3>
-      {name}...Testing Usecontext Api
+      {name}...! Testing Usecontext Api
       <span>
         <ChangeProfile />
       </span>

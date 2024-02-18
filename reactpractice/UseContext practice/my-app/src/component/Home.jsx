@@ -5,7 +5,7 @@ function Home() {
   const { name } = useContext(Appcontext);
   return (
     <h3>
-      Hi this is {name} speaking..
+      Hi! This is {name} speaking..
       <span>
         <ChangeProfile />
       </span>

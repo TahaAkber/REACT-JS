@@ -4,7 +4,7 @@ import Home from "./component/Home";
 import Navbar from "./NAVBAR/Navbar";
 import Profile from "./component/Profile";
 import Contact from "./component/Contact";
-import { useState, useContext, createContext } from "react";
+import { useState, createContext } from "react";
 export const Appcontext = createContext();
 function App() {
   const [name, setname] = useState("Taha");
