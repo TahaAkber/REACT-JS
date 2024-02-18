@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ChangeProfile from "./ChangeProfile";
 import { Appcontext } from "../App";
 function Home() {
-  const { name, setname } = useContext(Appcontext);
+  const { name } = useContext(Appcontext);
   return (
     <h3>
       Hi this is {name} speaking..

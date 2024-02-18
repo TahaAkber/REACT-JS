@@ -5,12 +5,12 @@ import { Appcontext } from "../App";
 function Profile() {
   const { name } = useContext(Appcontext);
   return (
-    <div>
+    <h3>
       {name}...Testing Usecontext Api
       <span>
         <ChangeProfile />
       </span>
-    </div>
+    </h3>
   );
 }
 

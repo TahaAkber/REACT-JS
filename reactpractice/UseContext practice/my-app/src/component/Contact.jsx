@@ -4,12 +4,12 @@ import { Appcontext } from "../App";
 
 function Contact() {
   return (
-    <div>
+    <h1>
       Contact
       <span>
         <ChangeProfile />
       </span>
-    </div>
+    </h1>
   );
 }
 
