@@ -1,8 +1,13 @@
-.parent-c1 {
+.parent-n1 {
   color: white;
   background-color: black;
   height: 40px;
-  display: flex;
   padding-top: 10px;
-  justify-content: space-evenly;
+}
+.child-n1 {
+  float: right;
+}
+.div1 {
+  display: inline-block;
+  margin-right: 24px;
 }
