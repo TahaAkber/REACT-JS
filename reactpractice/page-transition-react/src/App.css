@@ -1,6 +1,6 @@
 .parent-n1 {
   color: white;
-  background-color: black;
+  background-color: rgb(206, 102, 102);
   height: 40px;
   padding-top: 10px;
 }
@@ -9,5 +9,11 @@
 }
 .div1 {
   display: inline-block;
-  margin-right: 24px;
+  margin-right: 30px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: wheat;
+}
+a:hover {
+  background-color: aliceblue;
 }
