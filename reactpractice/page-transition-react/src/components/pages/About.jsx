@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
 
 function About() {
   return (
-    <div>About</div>
-  )
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      About
+    </motion.div>
+  );
 }
 
-export default About
+export default About;

@@ -12,20 +12,13 @@ import Contact from "./components/pages/Contact";
 import Menu from "./components/pages/Menu";
 import Navbar from "./components/navbar/Navbar";
 import { AnimatePresence } from "framer-motion";
+import NewRoutes from "./routes/NewRoutes";
 function App() {
-  const location = useLocation();
   return (
     <div className="App">
       <Router>
         <Navbar />
-        <AnimatePresence>
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/Menu" element={<Menu />}></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
-          </Routes>
-        </AnimatePresence>
+        <NewRoutes />
       </Router>
     </div>
   );

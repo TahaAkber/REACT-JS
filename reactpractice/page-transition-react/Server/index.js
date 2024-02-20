@@ -10,16 +10,25 @@ app.use(cors());
 mongoose.connect(
   "mongodb+srv://tahaakber25:lumia123@cluster0.iu8teo7.mongodb.net/Cars?retryWrites=true&w=majority"
 );
-app.get(
-  app.get("/car", async (req, res) => {
-    try {
-      const result = await Carmodel.find({});
-      res.json(result);
-    } catch (error) {
-      console.log(error, "This is the error");
-    }
-  })
-);
+app.get("/car", async (req, res) => {
+  try {
+    const result = await Carmodel.find({});
+    res.json(result);
+  } catch (error) {
+    console.log(error, "This is the error");
+  }
+});
+
+app.post("/car", async (req, res) => {
+  try {
+    const cardata = req.body;
+    const result = new Carmodel(cardata);
+    await result.save();
+    res.json(result);
+  } catch (error) {
+    console.log(error, "Cant add to database");
+  }
+});
 app.listen(3001, () => {
   console.log("Connected at port:", 3001);
 });
