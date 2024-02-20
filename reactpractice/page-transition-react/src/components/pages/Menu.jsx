@@ -15,9 +15,9 @@ function Menu() {
   }, [data]);
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
       <h1 style={{ textAlign: "center", fontSize: 50 }}>
         <b>CARS STORE</b>
