@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -16,7 +18,12 @@ function Home() {
                 <h2 class="animate-charcter"> Welcome to Cars Showroom</h2>
                 <p class="animate-charcter1">Make Believe</p>
               </div>
-              <button className="button">
+              <button
+                className="button"
+                onClick={() => {
+                  navigate("/menu");
+                }}
+              >
                 <span>
                   <b>PLACE ORDER</b>
                 </span>
