@@ -18,3 +18,18 @@
 a:hover {
   background-color: aliceblue;
 }
+.header-image {
+  background-image: url("https://images.unsplash.com/photo-1647340764627-11713b9d0f65?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  width: 1920px;
+  height: 1080px;
+  padding-top: 10px;
+  display: flex;
+  align-items: first baseline;
+  justify-content: center;
+}
+.header-image h2 {
+  font-size: 100px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  color: white;
+}
