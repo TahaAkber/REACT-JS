@@ -1,7 +1,7 @@
 import React from "react";
 
 function Checkout(props) {
-  return <div></div>;
+  return <div>{props.data}</div>;
 }
 
 export default Checkout;

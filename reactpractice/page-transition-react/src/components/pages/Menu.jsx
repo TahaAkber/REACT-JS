@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../style/menu.css";
 import { motion } from "framer-motion";
+import Checkout from "./Checkout";
 
 function Menu() {
   const [data, setdata] = useState([]);
-  const [newdata, setnewdata] = useState([]);
+  const [totalprice, setnewprice] = useState(0);
   const getdata = () => {
     axios.get("http://localhost:3001/car").then((res) => {
       setdata(res.data);
@@ -15,7 +16,8 @@ function Menu() {
     getdata();
   }, [data]);
   const buybutton = (i) => {
-    setnewdata([...newdata, i.price]);
+    const price = i.price;
+    setnewprice(totalprice + price);
   };
 
   return (
@@ -54,7 +56,8 @@ function Menu() {
           </div>
         ))}
       </div>
-      <p>{newdata}</p>
+
+      
     </motion.div>
   );
 }
