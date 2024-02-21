@@ -18,6 +18,7 @@ function Menu() {
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+      className="menuhead"
     >
       <h1 style={{ textAlign: "center", fontSize: 50 }}>
         <b>CARS STORE</b>

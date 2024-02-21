@@ -10,7 +10,19 @@ function Home() {
     >
       <div className="home-p1">
         <div className="header-image">
-          <h2>Welcome to Cars Show Room</h2>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h2 class="animate-charcter"> Welcome to Cars Showroom</h2>
+                <p class="animate-charcter1">Make Believe</p>
+              </div>
+              <button className="button">
+                <span>
+                  <b>PLACE ORDER</b>
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
