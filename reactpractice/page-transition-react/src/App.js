@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -13,13 +13,17 @@ import Menu from "./components/pages/Menu";
 import Navbar from "./components/navbar/Navbar";
 import { AnimatePresence } from "framer-motion";
 import NewRoutes from "./routes/NewRoutes";
+import { useContext } from "react";
+const Appcontext = createContext();
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <NewRoutes />
-      </Router>
+      <Appcontext.Provider>
+        <Router>
+          <Navbar />
+          <NewRoutes />
+        </Router>
+      </Appcontext.Provider>
     </div>
   );
 }

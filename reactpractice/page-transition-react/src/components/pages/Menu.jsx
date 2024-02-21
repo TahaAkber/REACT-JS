@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 function Menu() {
   const [data, setdata] = useState([]);
+  const [newdata, setnewdata] = useState([]);
   const getdata = () => {
     axios.get("http://localhost:3001/car").then((res) => {
       setdata(res.data);
@@ -13,6 +14,10 @@ function Menu() {
   useEffect(() => {
     getdata();
   }, [data]);
+  const buybutton = (i) => {
+    setnewdata([...newdata, i.price]);
+  };
+
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -35,7 +40,12 @@ function Menu() {
               <h5>
                 <b>Price: ${i.price}</b>
               </h5>
-              <button className="btn-addtocart">
+              <button
+                className="btn-addtocart"
+                onClick={() => {
+                  buybutton(i);
+                }}
+              >
                 <span>
                   <b>Buy</b>
                 </span>
@@ -44,6 +54,7 @@ function Menu() {
           </div>
         ))}
       </div>
+      <p>{newdata}</p>
     </motion.div>
   );
 }

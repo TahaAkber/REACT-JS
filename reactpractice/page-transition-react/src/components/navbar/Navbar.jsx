@@ -5,25 +5,30 @@ function Navbar() {
     <div className="parent-n1">
       <div className="child-n1">
         <div className="div1">
-          <Link to="/" style={{ color: "red" }}>
+          <Link to="/" style={{ color: "black" }}>
             Home
           </Link>
         </div>
         <div className="div1">
-          <Link to="/Menu" style={{ color: "red" }}>
+          <Link to="/Menu" style={{ color: "black" }}>
             Menu
           </Link>
         </div>
         <div className="div1">
-          <Link to="/about" style={{ color: "red" }}>
+          <Link to="/about" style={{ color: "black" }}>
             About
           </Link>
         </div>
         <div className="div1">
-          <Link to="/contact" style={{ color: "red" }}>
+          <Link to="/contact" style={{ color: "black" }}>
             Contact
           </Link>
         </div>
+      </div>
+      <div className="div2">
+        <Link to="/checkout" style={{ color: "black" }}>
+          CheckOut
+        </Link>
       </div>
     </div>
   );

@@ -13,10 +13,18 @@
   margin-right: 30px;
   border-radius: 5px;
   padding: 5px;
-  background-color: rgb(0, 162, 255);
+  background-color: rgb(166, 214, 241);
+}
+.div2 {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(166, 214, 241);
+  margin-left: 25px;
 }
 a:hover {
-  background-color: rgb(197, 123, 123);
+  background-color: rgb(147, 162, 175);
+  border-radius: 5px;
 }
 .header-image {
   background-image: url("https://images.unsplash.com/photo-1647340764627-11713b9d0f65?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
