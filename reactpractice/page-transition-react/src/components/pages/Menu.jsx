@@ -35,6 +35,11 @@ function Menu() {
               <h5>
                 <b>Price: ${i.price}</b>
               </h5>
+              <button className="btn-addtocart">
+                <span>
+                  <b>Buy</b>
+                </span>
+              </button>
             </div>
           </div>
         ))}
