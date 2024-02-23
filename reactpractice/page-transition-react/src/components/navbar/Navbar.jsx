@@ -25,11 +25,11 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="div2">
+      {/* <div className="div2">
         <Link to="/checkout" style={{ color: "black" }}>
           CheckOut
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

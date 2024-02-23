@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../style/menu.css";
 import { motion } from "framer-motion";
-import Checkout from "./Checkout";
+import Cart from "./Cart";
 import { useNavigate } from "react-router-dom";
 function Menu() {
-  const navigate = useNavigate("/");
   const [data, setdata] = useState([]);
-  const [totalprice, setnewprice] = useState(0);
+  const [cart, setCart] = useState([]);
+
   const getdata = () => {
     axios.get("http://localhost:3001/car").then((res) => {
       setdata(res.data);
@@ -16,11 +16,13 @@ function Menu() {
   useEffect(() => {
     getdata();
   }, [data]);
-  const buybutton = (i) => {
-    const price = i.price;
-    setnewprice(totalprice + price);
+  const addToCart = (item) => {
+    setCart([...cart, item]);
   };
 
+  const handleBuyClick = (item) => {
+    addToCart(item);
+  };
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -43,7 +45,12 @@ function Menu() {
               <h5>
                 <b>Price: ${i.price}</b>
               </h5>
-              <button className="btn-addtocart" onClick={() => {}}>
+              <button
+                className="btn-addtocart"
+                onClick={() => {
+                  handleBuyClick(i);
+                }}
+              >
                 <span>
                   <b>Buy</b>
                 </span>
@@ -52,6 +59,7 @@ function Menu() {
           </div>
         ))}
       </div>
+      <Cart cart={cart} />
     </motion.div>
   );
 }

@@ -8,7 +8,7 @@ function Contact() {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
-      Contact
+      <div className="contact-p1"></div>
     </motion.div>
   );
 }

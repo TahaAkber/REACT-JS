@@ -10,7 +10,6 @@ import Home from "../components/pages/Home";
 import Menu from "../components/pages/Menu";
 import Contact from "../components/pages/Contact";
 import { AnimatePresence } from "framer-motion";
-import Checkout from "../components/pages/Checkout";
 function NewRoutes() {
   const location = useLocation();
 
@@ -21,7 +20,6 @@ function NewRoutes() {
         <Route path="/Menu" element={<Menu />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
     </AnimatePresence>
   );
