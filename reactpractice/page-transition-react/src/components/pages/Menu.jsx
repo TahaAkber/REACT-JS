@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../style/menu.css";
 import { motion } from "framer-motion";
 import Checkout from "./Checkout";
 import { useNavigate } from "react-router-dom";
-
 function Menu() {
   const navigate = useNavigate("/");
   const [data, setdata] = useState([]);
@@ -44,12 +43,7 @@ function Menu() {
               <h5>
                 <b>Price: ${i.price}</b>
               </h5>
-              <button
-                className="btn-addtocart"
-                onClick={() => {
-                  buybutton(i);
-                }}
-              >
+              <button className="btn-addtocart" onClick={() => {}}>
                 <span>
                   <b>Buy</b>
                 </span>
