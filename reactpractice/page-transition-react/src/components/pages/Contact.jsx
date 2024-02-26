@@ -1,7 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Carousal from "./Carousal";
-import { slides } from "/Users/KOLN1CE/Documents/GitHub/REACT-JS/reactpractice/page-transition-react/src/imagedata/Data.json";
+import axios from "axios";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -18,9 +17,18 @@ function Contact() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    await axios
+      .post("http://localhost:3001/query", {
+        name: data.Name,
+        email: data.Email,
+        query: data.Query,
+      })
+      .then((res) => {
+        console.log(data);
+      });
   };
+
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -34,11 +42,11 @@ function Contact() {
         </div>
       </div>
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder="Name" type="text" {...register("fullname")} />
+        <input placeholder="Name" type="text" {...register("Name")} />
         <p style={{ color: " red" }}>{errors.Name?.message}</p>
-        <input placeholder="Email" type="email" {...register("email")} />
+        <input placeholder="Email" type="email" {...register("Email")} />
         <p style={{ color: "red" }}>{errors.Email?.message}</p>
-        <textarea placeholder="Query" type="text" {...register("query")} />
+        <textarea placeholder=" Query" {...register("Query")} />
         <p style={{ color: "red" }}>{errors.Query?.message}</p>
         <input type="submit" />
       </form>
