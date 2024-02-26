@@ -15,7 +15,7 @@
 .arrow-left:hover {
   cursor: pointer;
 }
-.arrow-right {
+.arrow-right:hover {
   cursor: pointer;
 }
 .arrow-left {
@@ -24,6 +24,8 @@
   height: 2rem;
   color: white;
   left: 1rem;
+  filter: drop-shadow(0 0 5px grey);
+  margin: 25px;
 }
 .arrow-right {
   position: absolute;
@@ -31,4 +33,9 @@
   height: 2rem;
   color: white;
   right: 1rem;
+  filter: drop-shadow(0 0 5px grey);
+  margin: 25px;
+}
+.slide-hidden {
+  display: none;
 }
