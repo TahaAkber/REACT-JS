@@ -1,6 +1,6 @@
 import React from "react";
 import "./Carousal.css";
-
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 const slidedata = {
   slides: [
     {
@@ -22,11 +22,11 @@ function Carousal() {
   console.log(slidedata);
   return (
     <div className="parent-src">
+      <BsArrowLeftCircleFill />
       {slidedata.slides.map((i) => (
-        <div className="mapc1">
-          <img src={i.src} alt={i.alt} className="slides" />
-        </div>
+        <img src={i.src} alt={i.alt} className="slides" />
       ))}
+      <BsArrowRightCircleFill />
     </div>
   );
 }
