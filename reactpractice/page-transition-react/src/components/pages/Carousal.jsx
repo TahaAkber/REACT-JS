@@ -22,11 +22,12 @@ function Carousal() {
   console.log(slidedata);
   return (
     <div className="parent-src">
-      <BsArrowLeftCircleFill />
+      <BsArrowLeftCircleFill className="arrow-left" />
       {slidedata.slides.map((i) => (
         <img src={i.src} alt={i.alt} className="slides" />
       ))}
-      <BsArrowRightCircleFill />
+      <BsArrowRightCircleFill className="arrow-right" />
+      <span></span>
     </div>
   );
 }
