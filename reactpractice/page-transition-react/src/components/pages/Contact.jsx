@@ -42,11 +42,25 @@ function Contact() {
         </div>
       </div>
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder="Name" type="text" {...register("Name")} />
+        <input
+          placeholder="Name"
+          type="text"
+          {...register("Name")}
+          style={{ width: 500 }}
+        />
         <p style={{ color: " red" }}>{errors.Name?.message}</p>
-        <input placeholder="Email" type="email" {...register("Email")} />
+        <input
+          placeholder="Email"
+          type="email"
+          {...register("Email")}
+          style={{ width: 500 }}
+        />
         <p style={{ color: "red" }}>{errors.Email?.message}</p>
-        <textarea placeholder=" Query" {...register("Query")} />
+        <textarea
+          placeholder=" Query"
+          {...register("Query")}
+          style={{ height: 200 }}
+        />
         <p style={{ color: "red" }}>{errors.Query?.message}</p>
         <input type="submit" />
       </form>
