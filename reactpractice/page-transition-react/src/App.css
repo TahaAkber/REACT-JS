@@ -145,3 +145,37 @@ a:hover {
   font-family: "Times New Roman", Times, serif;
   font-size: 30px;
 }
+
+.parentcontact {
+  display: flex;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 24px;
+}
+
+/* Optional: Adjust spacing between inputs */
+.input-wrapper {
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+/* Optional: Style inputs */
+input {
+  padding: 8px;
+  margin-bottom: 10px; /* Adjust spacing as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Optional: Remove default input border radius */
+input:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+input:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}

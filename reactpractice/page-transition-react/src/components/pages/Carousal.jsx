@@ -37,7 +37,6 @@ function Carousal() {
         />
       ))}
       <BsArrowRightCircleFill className="arrow-right" onClick={functionright} />
-      <span></span>
     </div>
   );
 }
