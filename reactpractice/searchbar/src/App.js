@@ -8,7 +8,7 @@ function App() {
         <div className="searchbar">
           <Searchbar />
         </div>
-        <div className="searchresults"></div>
+        <div className="searchresults">Search Results</div>
       </div>
     </div>
   );
