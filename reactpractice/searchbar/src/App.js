@@ -6,9 +6,13 @@ function App() {
     <div className="App">
       <div className="searchbarcontainer">
         <div className="searchbar">
-          <Searchbar />
+          <b>
+            <Searchbar />
+          </b>
         </div>
-        <div className="searchresults">Search Results</div>
+        <div className="searchresults">
+          <b>Search Results</b>
+        </div>
       </div>
     </div>
   );
