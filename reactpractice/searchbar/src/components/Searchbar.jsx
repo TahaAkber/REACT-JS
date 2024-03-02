@@ -4,9 +4,12 @@ import Axios from "axios";
 import { FaSearch } from "react-icons/fa";
 function Searchbar() {
   const [input, setinput] = useState("");
-  const getData = () => {
+  const getData = (value) => {
     Axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-      console.log(res.data);
+      const result = res.data.filter((user) => {
+        return user && user.name && user.name.toLowerCase().includes(value);
+      });
+      console.log(result);
     });
   };
 
