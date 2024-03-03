@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Searchbar.css";
 import Axios from "axios";
 import { FaSearch } from "react-icons/fa";
-function Searchbar() {
+function Searchbar({ setresults }) {
   const [input, setinput] = useState("");
   const getData = (value) => {
     Axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
@@ -10,6 +10,7 @@ function Searchbar() {
         return user && user.name && user.name.toLowerCase().includes(value);
       });
       console.log(result);
+      setresults(result);
     });
   };
 
