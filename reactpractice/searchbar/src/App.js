@@ -16,7 +16,9 @@ function App() {
           <b>Search Results</b>
           <p>
             {results.map((i) => (
-              <div>{i.name}</div>
+              <div>
+                <b>{i.name}</b>
+              </div>
             ))}
           </p>
         </div>
