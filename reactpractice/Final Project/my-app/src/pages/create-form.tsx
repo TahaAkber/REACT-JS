@@ -6,11 +6,26 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { collection, addDoc } from "firebase/firestore";
 import { db, auth } from "../configs/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useState } from "react";
+
 interface CreateFormdata {
   title: string;
   description: string;
 }
 export const CreateForm = () => {
+  const [clear, setclear] = useState("");
+  const handleonchange = (e: any) => {
+    setclear(e.target.value);
+  };
+  const [clean, setclean] = useState("");
+  const handleclick = () => {
+    setclear("");
+    setclean("");
+  };
+  const handle = (e: any) => {
+    setclean(e.target.value);
+  };
+
   const [user] = useAuthState(auth);
 
   const schema = yup.object().shape({
@@ -36,23 +51,31 @@ export const CreateForm = () => {
       userId: user?.uid,
     });
   };
+
   return (
     <div className="form">
       <form onSubmit={handleSubmit(onCreatepost)} className="test">
+        <h1>
+          <span>ENTER POST</span>
+        </h1>
         <input
           placeholder="Title..."
           {...register("title")}
           className="box"
+          onChange={handleonchange}
+          value={clear}
         ></input>
         <p style={{ color: "red" }}>{errors.title?.message}</p>
         <textarea
           placeholder="Description..."
           {...register("description")}
           className="box"
+          onChange={handle}
+          value={clean}
         />
         <p style={{ color: "red" }}>{errors.description?.message}</p>
 
-        <input type="submit" className="submit"></input>
+        <input type="submit" className="submit" onClick={handleclick}></input>
       </form>
     </div>
   );

@@ -1,138 +1,177 @@
+/* Add this CSS to your styles.css or in your component's CSS-in-JS file */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Arial", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-/* CSS */
-.button {
-  background-color: #08a742;
-  border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
-    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
-    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
-    rgba(44, 187, 99, 0.15) 0 16px 32px;
-  color: rgb(2, 84, 2);
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button:hover {
-  box-shadow: rgba(10, 143, 61, 0.35) 0 -25px 18px -14px inset,
-    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
-    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
-    rgba(44, 187, 99, 0.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
-}
-#userphoto {
-  border-radius: 50%;
-  height: 30%;
-  width: 30%;
-}
-.user {
-  display: flex;
-  justify-content: right;
-  color: white;
-}
-.button1 {
-  background-color: #c2fbd7;
-  border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
-    rgba(1, 132, 51, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
-    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
-    rgba(44, 187, 99, 0.15) 0 16px 32px;
-  color: rgb(0, 69, 0);
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  float: right;
-}
-.button1:hover {
-  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
-    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
-    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
-    rgba(44, 187, 99, 0.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
-}
 .navbar {
-  background-color: rgb(1, 39, 8);
-  border-radius: 0px;
-}
-.navbar li {
-  float: left;
-  list-style: none;
-  margin: 13px 20px;
-}
-.navbar ul {
-  overflow: auto;
-}
-.navbar li a {
-  padding: 3px 3px;
-  text-decoration: none;
+  background-color: #333;
+  padding: 15px;
   color: white;
-}
-.navbar input {
-  border: 2px solid black;
-  border-radius: 14px;
-  padding: 3px 17px;
-  width: 129px;
-}
-.namephoto {
   display: flex;
-  flex-direction: column;
-}
-.form {
-  background-color: #08a742;
-  width: 20%;
-  border: 3px solid;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-30%, -50%);
-  padding: 10px;
+  justify-content: space-between;
 }
 .box {
-  background-color: white;
-  border-radius: 5%;
-  border: 2px solid;
+  border: 2px solid grey;
+  align-items: center;
+  text-align: center;
+  margin-top: 2%;
+  padding: auto;
+}
+.submit {
+  border-radius: 2px solid black;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.button {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.namephoto {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  margin-right: 10px;
+}
+
+#name {
+  font-weight: bold;
+  color: white;
+}
+
+#userphoto {
+  border-radius: 50%;
+}
+
+.button1 {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.description {
+  border: 2px solid black;
+  width: 30%;
+  height: 40%;
+  margin-left: 35%;
+}
+.title {
+  font-style: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+/* Styling for the post footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* Styling for the username */
+p {
+  margin-right: 6px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Styling for the like button */
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* Styling for the like button icon */
+button::before {
+  content: "";
+}
+
+/* Styling for the like button when hovered */
+button:hover {
+  color: #374237;
+}
+
+/* Styling for the like count */
+p.likes {
+  font-size: 14px;
+  color: #888;
+}
+.profile {
+  margin-left: 800%;
 }
 .submit {
   transition-duration: 0.4s;
+  background-color: white;
   color: black;
-  border-radius: 15% solid #04aa6d;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  border: 2px solid #4f5a56;
+  border-radius: 10px;
 }
+
 .submit:hover {
-  background-color: #04aa6d; /* Green */
+  background-color: #2f3a36;
   color: white;
+}
+.comment ul {
+  padding-left: 2px;
+}
+.form h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h1 {
+  display: block;
+  font-size: 3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.button3 {
+  transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+  border: 1.5px solid #4f5a56;
+  border-radius: 10px;
+}
+.button3:hover {
+  background-color: #2f3a36;
+  color: white;
+}
+.loginpage {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+.login {
+  display: block;
+  border: 3px #2f3a36 solid;
+  background-color: aquamarine;
 }

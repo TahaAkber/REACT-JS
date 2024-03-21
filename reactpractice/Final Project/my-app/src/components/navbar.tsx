@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Main } from "../pages/main";
+import { Main } from "../pages/main/main";
 import { auth } from "../configs/firebase";
 import Login from "../pages/login";
 import { signOut } from "firebase/auth";
 // yeh is liye lia hai k profile change nhi horhi thi aik bar login krke then phir yeh lia tou alag alag account se login hoga
 //or profile bhi change hogi
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth"; //yeh kara hai humne naya hook auth pakage take  sari information ajaye tareeke se
 function Navbar() {
   const Signout = async () => {
-    await signOut(auth);
+    await signOut(auth); //signout krne k liye hai yeh, yahan auth pass kara hai take saari information logout hojaye
   };
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth); //auth ki saari cheezein authstate k zariye user me ajayegi
   return (
     <div>
       <header>
@@ -36,22 +36,24 @@ function Navbar() {
           </ul>
           <div className="namephoto">
             {/* now i want to show user name in the website afterlogin in  */}
-
-            {user && (
-              <div>
-                {" "}
-                <div className="user">
+            <div className="profile">
+              {user && (
+                <div>
                   {" "}
-                  <p id="name">{user?.displayName}</p>
+                  <div className="user" style={{ fontSize: 3 }}>
+                    {" "}
+                    <p id="name">{user?.displayName}</p>
+                  </div>
+                  <img
+                    src={user?.photoURL || ""}
+                    width="100"
+                    height="100"
+                    id="userphoto"
+                    style={{ width: 40, height: 40 }}
+                  ></img>
                 </div>
-                <img
-                  src={user?.photoURL || ""}
-                  width="100"
-                  height="100"
-                  id="userphoto"
-                ></img>
-              </div>
-            )}
+              )}
+            </div>
           </div>
           <div>
             <button onClick={Signout} className="button1">
