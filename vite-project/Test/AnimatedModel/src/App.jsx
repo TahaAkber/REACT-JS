@@ -43,10 +43,10 @@ function App() {
         loadedModel.scene.rotation.x += direction * speed;
 
         // Switch direction at boundaries
-        if (loadedModel.scene.rotation.x >= 0.5) {
-          direction = -1; // Switch to decreasing
-        } else if (loadedModel.scene.rotation.x <= 0) {
-          direction = 1; // Switch to increasing
+        if (loadedModel.scene.rotation.x <= 0) {
+          direction = 1; // Switch to decreasing
+        } else if (loadedModel.scene.rotation.x >= 0.5) {
+          direction = -1; // Switch to increasing
         }
 
         loadedModel.scene.rotation.y = 0;
