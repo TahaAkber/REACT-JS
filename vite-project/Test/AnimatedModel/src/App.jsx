@@ -28,10 +28,12 @@ function App() {
 
     let direction = 1; // 1 for increasing, -1 for decreasing
 
+    const speed = 0.005; // Smaller speed for smoother transition
+
     const animate = () => {
       if (loadedModel) {
         // Adjust rotation based on direction
-        loadedModel.scene.rotation.x += direction * 0.01;
+        loadedModel.scene.rotation.x += direction * speed;
 
         // Switch direction at boundaries
         if (loadedModel.scene.rotation.x >= 0.5) {
