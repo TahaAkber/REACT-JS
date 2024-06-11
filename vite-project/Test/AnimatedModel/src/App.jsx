@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
 
 import * as THREE from 'three';
-// import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-// import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-// import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import SceneInit from './lib/SceneInit';
@@ -20,10 +17,20 @@ function App() {
     gltfLoader.load('./assets/shiba/lopoly_dna.gltf', (gltfScene) => {
       loadedModel = gltfScene;
 
+      if (loadedModel.scene.material) {
+        loadedModel.scene.material.color = new THREE.Color(0xff0000); // Set to red
+      } else {
+        loadedModel.scene.traverse((child) => {
+          if (child.isMesh) {
+            child.material.color = new THREE.Color(0x00ffff); // Set to green
+          }
+        });
+      }
+
       // Position and scale adjustments
-      gltfScene.scene.position.set(1, 3, 0);
-      gltfScene.scene.scale.set(0.5, 0.5, 0.5);
-      test.scene.add(gltfScene.scene);
+      loadedModel.scene.position.set(1, 3, 0);
+      loadedModel.scene.scale.set(0.5, 0.5, 0.5);
+      test.scene.add(loadedModel.scene);
     });
 
     let direction = 1; // 1 for increasing, -1 for decreasing
